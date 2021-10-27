@@ -1,0 +1,27 @@
+
+
+<div class="container">
+  <p>{{ user | json }}</p>
+  <div class="login-block">
+    <form ngNativeValidate #f (ngSubmit)="submit()">
+      <app-input-text
+        [name]="'uid'"
+        [placeholder]="'使用者ID'"
+        [required]="true"
+        [(ngModel)]="user.uid"></app-input-text>
+      <app-input-password
+        [name]="'password'"
+        [placeholder]="'密碼'"
+        [required]="true"
+        [(ngModel)]="user.password"></app-input-password>
+      <img *ngIf="showCaptcha" [src]="captchaUrl" />
+      <app-input-text *ngIf="showCaptcha"
+        [name]="'auxpassword'"
+        [placeholder]="'驗證碼'"
+        [required]="true"
+        [(ngModel)]="user.auxpassword"></app-input-text>
+      <app-button [loading]="loading" [type]="'submit'" [text]="'submit'"></app-button>
+    </form>
+  </div>
+</div>
+

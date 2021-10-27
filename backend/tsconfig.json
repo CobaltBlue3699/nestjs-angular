@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "module": "CommonJs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+		"skipLibCheck": true,
+		"paths": {
+			"@interfaces/*": [
+        "./src/common/interfaces/*"
+      ],
+			"@constants/*": [
+        "./src/common/constants/*"
+      ],
+			"@interceptors/*": [
+        "./src/common/interceptors/*"
+      ],
+			"@filters/*": [
+				"./src/common/filters/*"
+			],
+		},
+		"types": ["node", "jest"]
+  }
+}

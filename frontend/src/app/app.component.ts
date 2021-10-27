@@ -1,0 +1,26 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent implements OnInit {
+  showHeader = false;
+  showSidebar = false;
+  showFooter = false;
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    // 轉導後判斷header、footer、sidebar開啟或關閉
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.showHeader = this.activatedRoute.firstChild?.snapshot.data.showHeader !== false;
+        this.showSidebar = this.activatedRoute.firstChild?.snapshot.data.showSidebar !== false;
+        this.showFooter = this.activatedRoute.firstChild?.snapshot.data.showFooter !== false;
+      }
+    });
+  }
+}

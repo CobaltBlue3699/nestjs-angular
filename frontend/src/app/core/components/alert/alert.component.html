@@ -1,0 +1,11 @@
+
+<div class="alert">
+  <div
+    *ngFor="let alert of alerts; let i = index"
+    class="alert alert-{{ alert.type }} alert-dismissible fade show mb-3" role="alert"
+    [style.top]="30 + 60 * i + 'px'">
+    {{ alert.message }}<span *ngIf="alert.extraText">({{ alert.extraText }})</span>
+    <button type="button" class="close" aria-label="Close" (click)="close(alert)"><span aria-hidden="true">&times;</span></button>
+  </div>
+</div>
+

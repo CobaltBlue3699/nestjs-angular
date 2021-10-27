@@ -1,0 +1,12 @@
+<app-alert></app-alert>
+<app-header *ngIf="showHeader"></app-header>
+
+<main role="main" class="flex-shrink-0">
+  <app-sidebar *ngIf="showSidebar"></app-sidebar>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+
+<app-footer *ngIf="showFooter"></app-footer>
+
